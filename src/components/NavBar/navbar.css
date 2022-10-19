@@ -1,0 +1,43 @@
+.navbarCss {
+background-color: #5353e4;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.ulEnlaces {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.ulEnlaces li{
+  display: inline-block;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.ulEnlaces li a{
+  text-decoration: none;
+  color: bisque;
+  margin: 10px;
+}
+
+.ulEnlaces li a:hover {
+  color: rgb(194, 155, 247);
+}
+
+.imgLogo {
+  width: 60px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.logoCarrito {
+  width: 40px;
+}

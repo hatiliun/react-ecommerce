@@ -1,17 +1,17 @@
 
 import './App.css';
+import ItemList from './components/ItemList/ItemList';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
-  let title= "Bienvenidos a react gato";
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
        <NavBar />
       </header>
-      <ItemListContainer/>
-      <h1>{title}</h1>
+      <ItemListContainer greeting="greeting"/>
+      <ItemList/>
     </div>
   );
 }
