@@ -7,11 +7,11 @@ import NavBar from './components/NavBar/NavBar';
 function App() {
   return (
     <div className="App">
-      <header>
+      <header >
        <NavBar />
       </header>
-      <ItemListContainer greeting="greeting"/>
       <ItemList/>
+      <ItemListContainer greeting="greeting"/>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+
 .navbarCss {
 background-color: #5353e4;
   height: 10vh;
@@ -24,12 +25,12 @@ background-color: #5353e4;
 
 .ulEnlaces li a{
   text-decoration: none;
-  color: bisque;
+  color: white;
   margin: 10px;
 }
 
 .ulEnlaces li a:hover {
-  color: rgb(194, 155, 247);
+  color: rgb(0, 216, 18);
 }
 
 .imgLogo {
