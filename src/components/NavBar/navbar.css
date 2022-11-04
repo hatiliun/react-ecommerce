@@ -8,6 +8,7 @@ background-color: #5353e4;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 40px;
 }
 
 .ulEnlaces {
@@ -17,20 +18,17 @@ background-color: #5353e4;
   margin-right: 50px;
 }
 
-.ulEnlaces li{
+.ulEnlaces a{
   display: inline-block;
   padding: 10px;
   font-size: 20px;
-}
-
-.ulEnlaces li a{
   text-decoration: none;
-  color: whiteg;
+  color: white;
   margin: 10px;
 }
 
-.ulEnlaces li a:hover {
-  color: rgb(0, 216, 18);
+.ulEnlaces a:hover {
+  color: rgb(0, 255, 21);
 }
 
 .imgLogo {
