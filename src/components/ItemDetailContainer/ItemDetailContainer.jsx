@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getSingleItemFromAPI } from "../../mockService/mockService";
 import "../Item/item.css";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
+import Button from "../Button/Button";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
@@ -25,6 +26,9 @@ function ItemDetailContainer() {
         <h2>{product.title}</h2>
         <p>{product.detail}</p>
         <h4 className="priceTag">$ {product.price}</h4>
+        <Link to ="#"> 
+        <Button >Comprar</Button>
+        </Link>
       </div>
     </div>
     </div>
