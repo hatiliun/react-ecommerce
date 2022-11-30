@@ -23,8 +23,6 @@ Consulte la sección sobre [implementación](https://facebook.github.io/create-r
 
 ## `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
 Si no está satisfecho con la herramienta de compilación y las opciones de configuración, puede "expulsar" en cualquier momento. Este comando eliminará la dependencia de compilación única de su proyecto.
 
 En cambio, copiará todos los archivos de configuración y las dependencias transitivas (webpack, Babel, ESLint, etc.) directamente en su proyecto para que tenga control total sobre ellos. Todos los comandos, excepto "expulsar", seguirán funcionando, pero apuntarán a los scripts copiados para que pueda modificarlos. En este punto estás por tu cuenta.
