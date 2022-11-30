@@ -13,3 +13,11 @@
     background-color:  rgb(0, 216, 18);
     transition: all 0.05s ease-in;
 }
+
+.danger {
+    background-color: red;
+}
+
+.alert {
+    background-color: #5353e4 ;
+}

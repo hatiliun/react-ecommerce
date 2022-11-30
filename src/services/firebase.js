@@ -1,6 +1,118 @@
 
-/*---------------------------BACK-END--------------------- */
-const itemsDB = [
+
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs,doc, getDoc, query, where, addDoc,writeBatch, documentId } from "firebase/firestore";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCfMwAVYp4f10-Jzrs7fQ8ZsxgkQYkrzMQ",
+  authDomain: "react-eros-minali.firebaseapp.com",
+  projectId: "react-eros-minali",
+  storageBucket: "react-eros-minali.appspot.com",
+  messagingSenderId: "662802473699",
+  appId: "1:662802473699:web:ac267755868bb90bd61bd6"
+};
+
+const FirebaseApp = initializeApp(firebaseConfig);
+const DB = getFirestore(FirebaseApp);
+
+export function testDatabase() {
+console.log(FirebaseApp);
+    
+}
+
+export async function getSingleItemFromAPI(id) { 
+
+const docRef = doc(DB, "products", id);
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  return {
+    ...docSnap.data(),
+    id: docSnap.id,
+  }
+  
+} else {
+  console.error("El producto no existe");
+  
+}
+}
+
+export async function getItemsFromAPI() {
+  try {
+    //1. Necesito conectarme a la coleccion de productos
+    const collectionProducts = collection (DB, "products");
+    //2. Necesito traer todos los documentos existentes
+    let respuesta = await getDocs(collectionProducts);
+    //3. Extraemos la data de nuestros productos y la mapeamos con "map"
+
+    const products = respuesta.docs.map (docu => {
+      return {
+        ...docu.data(),
+        id: docu.id
+      }
+    })
+
+    //4. Retornamos el listado de productos mapeados
+    return(products)
+  }
+  catch(error){
+    console.error(error);
+  }
+}
+
+export async function getItemsFromAPIByCategory(categoryId) {
+  const productsRef = collection(DB, "products");
+  const myQuery = query(productsRef, where("category", "==", categoryId))
+
+  const productsSnap = await getDocs(myQuery);
+  const products = productsSnap.docs.map (docu => {
+    return {
+      ...docu.data(),
+      id: docu.id
+    }
+  })
+
+  return products;
+
+}
+
+export async function createBuyOrderFirestore(buyOrderData) {
+  const collectionRef = collection(DB, "buyorders")
+  const docRef = await addDoc(collectionRef, buyOrderData)
+  
+  return (docRef.id);
+}
+
+export async function createBuyOrderFirestoreWithStock(buyOrderData) {
+  const collectionProductsRef = collection(DB, "products")
+  const collectionOrdersRef = collection(DB, "buyorders")
+  const batch = writeBatch(DB)
+
+  let arrayIds = buyOrderData.items.map((item) => {
+    return item.id;
+  });
+
+  const q = query (collectionProductsRef, where(documentId(),'in', arrayIds ))
+
+  let productsSnapshot = await getDocs(q)
+  productsSnapshot.docs.forEach((doc) => {
+    let stockActual = doc.data().stock;
+    let itemInCart = buyOrderData.items.find((item) => item.id === doc.id)
+    let stockActualizado = stockActual - itemInCart.count;
+    
+    batch.update (doc.ref, {stock: stockActualizado})
+  })
+
+  let docOrderRef = doc(collectionOrdersRef);
+  batch.set(docOrderRef, buyOrderData);
+  batch.commit();
+  return docOrderRef.id
+
+}
+
+ async function exportItemsToFirestore() {
+  const items = [
     {
         id:1,
         title:"Placa de video TUF RTX™ 3070",
@@ -115,46 +227,10 @@ const itemsDB = [
     
     
     ];
-export default function getItemsFromAPI() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve (itemsDB);
-    },500);
-    });
+  const collectionRef = collection (DB, "products")
+
+  for (let item  of items) {
+    const docRef = await addDoc(collectionRef, item);
+    console.log("Document created with ID", docRef.id);
+  }
 }
-
-export function getSingleItemFromAPI(idParams) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let itemRequested = itemsDB.find((item) => item.id === Number (idParams));
-            if (itemRequested) {
-                resolve (itemRequested);
-            }
-            else {
-                reject(new Error("El item no existe"));
-            }
-    },500);
-    });
-}
-
-export function getItemsFromAPIByCategory(categoryid) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            let itemRequested = itemsDB.filter(
-                (item) => item.category === categoryid);
-            resolve (itemRequested);
-    },500);
-    });
-}
-
-/*---------------------------FRONT-END--------------------- */
-
-// console.log("1. App Iniciada.");
-// async function leerApi() {
-//     let respuesta = await APICall ();
-//     console.log(respuesta);
-// }
-
-// leerApi();
-
-// console.log("3. App Finalizada.");

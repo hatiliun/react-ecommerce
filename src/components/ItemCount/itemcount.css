@@ -1,0 +1,19 @@
+.itemcount_container{
+    border-radius: 15px;
+    padding: 12px 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    text-align: center;
+    justify-content: space-around;
+  }
+  
+  .itemcount_control{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2px 10px;
+  }
+  
+  .itemcount_control span{
+    padding-top: 10px
+  }

@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import FlexWrapper from "../FlexWrapper/FlexWrapper";
-import getItemsFromAPI, {getItemsFromAPIByCategory} from '../../mockService/mockService';
 import ItemList from "./ItemList";
 import {useParams} from "react-router-dom";
-
+import { getItemsFromAPI, getItemsFromAPIByCategory } from '../../services/firebase';
 
 function ItemListContainer() {
   const [productsList, setProductsList] = useState([]);

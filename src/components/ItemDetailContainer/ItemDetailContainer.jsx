@@ -1,36 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { getSingleItemFromAPI } from "../../mockService/mockService";
+import { getSingleItemFromAPI } from "../../services/firebase";
 import "../Item/item.css";
-import {useParams, Link} from "react-router-dom";
-import Button from "../Button/Button";
+import {useParams} from "react-router-dom";
+import ItemDetail from "./itemDetail";
+import Loader from "../Loader/Loader";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
-  let params = useParams();
-  let id = params.id;
+  const [isLoading, setIsLoading] = useState(true);
+
+  let id = useParams().id;
+
 
   useEffect(() => {
-    getSingleItemFromAPI(id).then((itemsDB) => {
+    getSingleItemFromAPI(id)
+      .then((itemsDB) => {
       setProduct(itemsDB);
-    }).catch(error => alert(error));
-    
+    })
+    .catch((error) => {
+    console.error(error)
+  }) 
+  .finally ( () => 
+    setIsLoading (false))   
   }, [id]);
 
+
+  if (isLoading) return <Loader/>
   return (
     <div className="flex">
-    <div className="card">
-      <div className="card-img">
-        <img src={product.thumbnail} alt="Product img" />
-      </div>
-      <div className="card-detail">
-        <h2>{product.title}</h2>
-        <p>{product.detail}</p>
-        <h4 className="priceTag">$ {product.price}</h4>
-        <Link to ="#"> 
-        <Button >Comprar</Button>
-        </Link>
-      </div>
-    </div>
+    <ItemDetail product={product} />
     </div>
   );
 }
