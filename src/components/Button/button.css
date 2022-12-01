@@ -18,6 +18,7 @@
 .danger {
     background-color: rgb(155, 50, 50);
     transition: all 0.20s ease-in;
+    margin-top: 10px;
 }
 .danger:hover {
     background-color: rgb(255, 85, 85);

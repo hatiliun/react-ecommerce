@@ -41,10 +41,10 @@ if (cart.length === 0 )
                 <h4>$ {cartItem.price}</h4>
                 <h4>Cantidad: {cartItem.count}</h4>
                 <h4>Precio a pagar: $ {cartItem.count * cartItem.price}</h4>
-                <Button onClick={()=>removeItem(cartItem.id)} type= "danger" >X</Button>
-                <Button onClick={clear} type= "danger" >Vaciar carrito</Button>
+                <Button onClick={()=>removeItem(cartItem.id)} type= "danger" >X</Button>    
            </div>
         ))}
+        <Button onClick={clear} type= "danger" >Vaciar carrito</Button>
         <h2>Total a pagar: ${totalPriceInCart()}</h2>
         <BuyForm onSubmit={createBuyOrder}/>
 
