@@ -59,11 +59,13 @@ function ItemDetail({ product }) {
         />
 
       ) : (
-        <div>
+        <div className="buttons-item-detail">
           <Link to="/cart">
           <button>Ir al Carrito</button>
           </Link>
+          <Link to="/">
           <button>Volver al catálogo</button>
+          </Link>
           <button>Quitar del carrito</button>
         </div>
       )}

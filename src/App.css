@@ -1,5 +1,12 @@
+html {
+  background-color: aliceblue;
+}
+
 .App {
+  font-family: monospace;
+  font-size: 15px;
   text-align: center;
+  background-color: aliceblue;
 }
 
 .App-logo {
@@ -26,3 +33,4 @@
     transform: rotate(360deg);
   }
 }
+

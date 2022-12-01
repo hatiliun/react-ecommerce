@@ -4,6 +4,7 @@ import "../Item/item.css";
 import {useParams} from "react-router-dom";
 import ItemDetail from "./itemDetail";
 import Loader from "../Loader/Loader";
+import FlexWrapper from "../FlexWrapper/FlexWrapper";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
@@ -25,7 +26,11 @@ function ItemDetailContainer() {
   }, [id]);
 
 
-  if (isLoading) return <Loader/>
+  if (isLoading) return (
+  <FlexWrapper>
+  <Loader color="green" size={100}/>
+  </FlexWrapper>
+  )
   return (
     <div className="flex">
     <ItemDetail product={product} />

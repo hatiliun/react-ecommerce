@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InputForm from "./InputForm";
+import "../Button/button.css";
 
 export default function BuyForm(props) {
   const [userData, setUserData] = useState({
@@ -47,7 +48,7 @@ export default function BuyForm(props) {
         value={userData.email}
         onInputChange={onInputChange}
       />
-      <button onClick={onSubmit}>Crear orden</button>
+      <button className="btn" onClick={onSubmit}>Crear orden</button>
     </form>
   );
 }

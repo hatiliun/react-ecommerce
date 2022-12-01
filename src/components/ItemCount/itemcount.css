@@ -17,3 +17,38 @@
   .itemcount_control span{
     padding-top: 10px
   }
+
+  .button-substract{
+    height: 29px;
+    width: 25px;
+    color: white;
+    max-width: 25px;
+    max-height: 29px;
+    background-color: #903024;
+    border-radius: 4px;
+    border: none;
+    margin: 5px 5px;
+    cursor: pointer;
+    transition: all 0.20s ease-in;
+  }
+  .itemcount_control .button-substract:hover{
+    background-color: #d81c03;
+    }
+  .itemcount_control .button-add:hover{
+      background-color: #00da41;
+      }
+  
+
+  .button-add {
+    height: 29px;
+    width: 25px;
+    color: white;
+    max-width: 25px;
+    max-height: 29px;
+    background-color: #239044;
+    border-radius: 4px;
+    border: none;
+    margin: 5px 5px;
+    cursor: pointer;
+    transition: all 0.20s ease-in;
+  }

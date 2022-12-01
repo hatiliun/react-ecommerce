@@ -7,6 +7,7 @@
     border: none;
     margin: 5px 5px;
     cursor:pointer;
+    transition: all 0.20s ease-in;
 }
 
 .btn:hover {
@@ -15,9 +16,15 @@
 }
 
 .danger {
-    background-color: red;
+    background-color: rgb(155, 50, 50);
+    transition: all 0.20s ease-in;
+}
+.danger:hover {
+    background-color: rgb(255, 85, 85);
+    transition: all 0.20s ease-in;
 }
 
 .alert {
     background-color: #5353e4 ;
+    transition: all 0.20s ease-in;
 }

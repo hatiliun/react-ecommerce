@@ -25,10 +25,12 @@ background-color: #5353e4;
   text-decoration: none;
   color: white;
   margin: 10px;
+  transition: all 0.20s ease-in;
 }
 
 .ulEnlaces a:hover {
   color: rgb(0, 255, 21);
+
 }
 
 .imgLogo {

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./storage/CartContext";
 import CartView from "./components/CartView/CartView";
 import {getSingleItemFromAPI} from './services/firebase';
+import Checkout from "./components/Checkout/Checkout";
 
 // testDatabase();
 function App() {
@@ -26,7 +27,7 @@ function App() {
             />
             <Route path="/detalle/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartView />} />
-            <Route path="/checkout/:orderid" element={<h1>Gracias por tu compra</h1>} />
+            <Route path="/checkout/:orderid" element={<Checkout/>} />
             <Route path="*" element={<h1>404: Ruta no encontrada</h1>} />
             
           </Routes>
