@@ -1,5 +1,7 @@
 # PROYECTO E-COMMERCE REALIZADO CON REACT 
 
+En este proyecto se implementaron muchas herramientas y funcionalidades de react, las cuales fueron de mucha utilidad para aprender a comprender el funcionamiento del proyecto, instalamos desde cero react y lo configuramos, creamos componentes, hicimos uso de PROMESAS, MAP, consumimos APIS, utilizamos routing y navegacion para poder navegar entre las diferentes secciones de nuestro programa, como asi tambien aplicamos eventos para que se ejecuten ciertas acciones al utilizar algunos elementos, tambien se aprendio y se hizo uso del CONTEXT, luego vimos y aplicamos tecnicas de rendering y finalmente usamos FIREBASE para tener nuestra propia base de datos en la cual veremos las ordenes de compra del usuario mediante un pequeño formulario, como asi tambien podemos ver los productos de la tienda.
+
 ### COMANDOS DISPONIBLES DE EJECUCIÓN PARA EJECUTAR:
 
 ### `npm start`
@@ -23,8 +25,4 @@ Consulte la sección sobre [implementación](https://facebook.github.io/create-r
 
 ## `npm run eject`
 
-Si no está satisfecho con la herramienta de compilación y las opciones de configuración, puede "expulsar" en cualquier momento. Este comando eliminará la dependencia de compilación única de su proyecto.
-
-En cambio, copiará todos los archivos de configuración y las dependencias transitivas (webpack, Babel, ESLint, etc.) directamente en su proyecto para que tenga control total sobre ellos. Todos los comandos, excepto "expulsar", seguirán funcionando, pero apuntarán a los scripts copiados para que pueda modificarlos. En este punto estás por tu cuenta.
-
-No tienes que usar nunca `eject`. El conjunto de funciones seleccionadas es adecuado para implementaciones pequeñas y medianas, y no debe sentirse obligado a usar esta función. Sin embargo, entendemos que esta herramienta no sería útil si no pudiera personalizarla cuando esté listo para hacerlo.
+Si no está satisfecho con la herramienta de compilación y las opciones de configuración, puede hacer uso del "eject" en cualquier momento. Este comando eliminará la dependencia de compilación única de su proyecto.
